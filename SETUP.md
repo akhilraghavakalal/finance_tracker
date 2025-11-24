@@ -122,3 +122,57 @@ frontend/
 4. Copy `.env.example` to `.env` and fill in values
 5. Run backend: `uvicorn app.main:app --reload`
 6. Run frontend: `npm run dev`
+
+---
+
+## Milestone 1: Hello FARM Stack ✅ COMPLETED
+
+### What Was Built
+- Basic FastAPI backend with 2 endpoints
+- React frontend that fetches from backend
+- CORS configured for frontend-backend communication
+- Tested with browser, Postman, and frontend
+
+### Backend Code (`app/main.py`)
+- Created FastAPI app
+- Added CORS middleware (allows frontend at localhost:5173)
+- Created 2 endpoints:
+  - `GET /` - Returns welcome message
+  - `GET /api/v1/health` - Health check endpoint
+
+### Frontend Code (`src/App.jsx`)
+- Used `useState` and `useEffect` hooks
+- Fetched data from both backend endpoints
+- Displayed results in browser
+
+### Commands to Run
+**Backend:**
+```bash
+cd backend
+venv\Scripts\activate
+uvicorn app.main:app --reload
+```
+Runs at: http://localhost:8000
+
+**Frontend:**
+```bash
+cd frontend
+npm run dev
+```
+Runs at: http://localhost:5173
+
+### Testing
+- ✅ Browser: http://localhost:8000 shows JSON
+- ✅ Swagger Docs: http://localhost:8000/docs (interactive API docs)
+- ✅ Postman: Successfully tested health endpoint
+- ✅ Frontend: Displays backend data
+
+### Key Concepts Learned
+- **FastAPI basics**: Routes, decorators (@app.get)
+- **CORS**: Cross-Origin Resource Sharing for frontend-backend
+- **React hooks**: useState (state), useEffect (side effects)
+- **fetch()**: Making HTTP requests from JavaScript
+- **Uvicorn**: ASGI server with hot reload (--reload flag)
+- **Automatic docs**: FastAPI generates Swagger UI at /docs
+
+---
