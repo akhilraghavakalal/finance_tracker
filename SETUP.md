@@ -176,3 +176,81 @@ Runs at: http://localhost:5173
 - **Automatic docs**: FastAPI generates Swagger UI at /docs
 
 ---
+
+---
+
+## Milestone 2: MongoDB Connection ✅ COMPLETED
+
+### What Was Built
+- Connected FastAPI to MongoDB using Motor (async driver)
+- Created database connection utilities
+- Added startup/shutdown events for connection lifecycle
+- Tested CRUD operations with test endpoints
+
+### Database Configuration
+- **Driver:** Motor (async MongoDB driver)
+- **Connection:** mongodb://localhost:27017
+- **Database Name:** finance_tracker
+- **File:** `app/database/mongodb.py`
+
+### Code Changes
+**database/mongodb.py:**
+- MongoDB class for connection management
+- `connect_to_mongo()` - Establishes connection
+- `close_mongo_connection()` - Closes connection
+- `get_database()` - Returns database instance
+
+**main.py updates:**
+- Added startup event to connect on app start
+- Added shutdown event to disconnect on app stop
+- Updated health check to ping database
+- Created test endpoints: POST/GET `/api/v1/test`
+
+### Testing Completed
+- ✅ Health endpoint shows database connected
+- ✅ POST data to MongoDB successful
+- ✅ GET data from MongoDB returns inserted items
+- ✅ MongoDB Compass shows data (if GUI installed)
+
+### Key Concepts Learned
+- **Motor**: Async MongoDB driver for Python
+- **Async/Await**: Asynchronous database operations
+- **Startup/Shutdown Events**: FastAPI lifecycle events
+- **Collections**: MongoDB's equivalent of SQL tables
+- **ObjectId**: MongoDB's unique identifier (_id field)
+
+---
+
+## Current Project Status
+
+### ✅ Completed Milestones
+1. Project structure and Git setup
+2. Backend (FastAPI) and Frontend (React) created
+3. CORS configured for communication
+4. MongoDB connected and tested
+
+### 🎯 Ready for Next Session
+- Basic infrastructure complete
+- Can start building actual features (transactions, auth, etc.)
+- All tools installed and working
+
+### Quick Start Commands
+```bash
+# Terminal 1 - Backend
+cd backend
+venv\Scripts\activate
+uvicorn app.main:app --reload
+
+# Terminal 2 - Frontend
+cd frontend
+npm run dev
+
+# Terminal 3 - MongoDB (if not running as service)
+mongod
+```
+
+### URLs
+- Backend API: http://localhost:8000
+- API Docs: http://localhost:8000/docs
+- Frontend: http://localhost:5173
+- MongoDB: mongodb://localhost:27017
